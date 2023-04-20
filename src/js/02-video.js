@@ -1,5 +1,4 @@
 import Player from "@vimeo/player";
-// const throttle = require("lodash.throttle");
 
 import throttle from "lodash.throttle";
 
@@ -16,11 +15,7 @@ player.on("timeupdate", throttle(saveLocalStorage, 1000))
 
 player.off("timeupdate", saveLocalStorage)
 
-player.off("timeupdate", function (data) {
-    console.log(data)
 
-    localStorage.setItem("videoplayer-current-time", JSON.stringify(data))
-})
 
 
 
@@ -49,28 +44,3 @@ function saveLocalStorage(currentTime) {
 
 
 
-
-    // let arr = [1,2,3,4,5]
-
-
-    // function f(n) {
-    //     return n * n
-    // }
-
-
-    // arr.map(f)
-
-
-    // arr.map( function (n) {
-    //     return n * n
-    // })
-
-
-    // arr.map((item) => {
-    //     return item * item
-    // })
-
-    // arr.map((item) => item * item)
-
-
-    // arr.map((item) => f(item))
