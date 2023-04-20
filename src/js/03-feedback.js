@@ -64,14 +64,15 @@ function onSaveUserData(e) {
 function onSendForm(e) {
     e.preventDefault();
 
-    const currentForm = e.currentTarget.elements
+    const currentForm = e.currentTarget
+    const currentFormElements = currentForm.elements
     console.log(currentForm)
 
-    const {email, message} = currentForm
+    const {email, message} = currentFormElements;
 
 
     if (!email.value || !message.value) {
-        alert('Please fill in all fields');
+        alert('Заполните поля');
     } else {
         const formData = {
             email: email.value,
@@ -80,7 +81,7 @@ function onSendForm(e) {
 
         console.log(formData)
 
-        currentForm.reset()
+        currentForm.reset();
         localStorage.removeItem("feedback-form-state");
 
         utils.email = ""
